@@ -65,4 +65,4 @@ username: admin
 password: in email
 
 [Hello World](http://ab2d37533b50f45abbb7c3a6db6a236f-1476568444.us-east-1.elb.amazonaws.com:8080)  
-[Alternate Hello World](http://a21ccd9f8e76c4aec81c4ea96602db12-441149813.us-east-1.elb.amazonaws.com:8000) - will reflect any uri as well (eg. /healthz)
+[Alternate Hello World](http://a7f99ccab8543414bba6c025a11a7099-1275988966.us-east-1.elb.amazonaws.com:8000) - will reflect any uri as well (eg. /healthz)
