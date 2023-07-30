@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hello-world-map
+  namespace: default
+data:
+  index.html: |
+    <html>
+    <h1>Hello Graylog, my name is Brian McCulley</h1>
+    </html>

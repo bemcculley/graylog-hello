@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world-deployment
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      deployment: hello-world
+  template:
+    metadata:
+      labels:
+        deployment: hello-world
+    spec:
+      containers:
+      - name: hello-world-container
+        image: nginx:latest
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "250m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+        ports:
+        - containerPort: 80
+        volumeMounts:
+          - mountPath: /usr/share/nginx/html
+            name: nginx-index-file
+      volumes:
+        - name: nginx-index-file
+          configMap:
+            name: hello-world-map
