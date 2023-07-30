@@ -56,7 +56,10 @@ flux - v2.0.1
     - `export GITHUB_TOKEN=<token>`
     - `export GITHUB_USER=<username>`
 
-### Repo structure diagram
+### Simplified AWS network diagram ###
+![Simplified AWS network diagram](docs/simplified-aws-network-diagram.png)
+
+### Repo structure diagram ###
 ```
 terraform
 
@@ -77,7 +80,9 @@ flux
 ### URLS ###
 [Weave Gitops](http://a6af14c8811704d2caf3747e3fd9eb26-116247240.us-east-1.elb.amazonaws.com:9000/applications)  
 username: admin  
-password: in email
+password: in email  
+
+![Weave apps dashboard](docs/weave-apps-dashboard.png)
 
 [Hello World](http://ab2d37533b50f45abbb7c3a6db6a236f-1476568444.us-east-1.elb.amazonaws.com:8080)  
 [Alternate Hello World](http://a7f99ccab8543414bba6c025a11a7099-1275988966.us-east-1.elb.amazonaws.com:8000) - will reflect any uri as well (eg. /healthz)
