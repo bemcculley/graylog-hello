@@ -63,3 +63,5 @@ flux
 [Weave Gitops](http://a6af14c8811704d2caf3747e3fd9eb26-116247240.us-east-1.elb.amazonaws.com:9000/applications)
 username: admin
 password: in email
+
+[Hello World](http://ab2d37533b50f45abbb7c3a6db6a236f-1476568444.us-east-1.elb.amazonaws.com:8080)
