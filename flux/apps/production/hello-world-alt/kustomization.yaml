@@ -3,7 +3,7 @@ kind: Kustomization
 commonLabels:
   variant: production
 resources:
-  - ../../base/hello-world
+  - ../../base/hello-world-alt
 patches:
   - target:
       group: apps
