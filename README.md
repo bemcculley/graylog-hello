@@ -5,7 +5,24 @@ Graylog Hello World project
 
 Make sure the following tools are installed:
 
-AWS CLI - v2.13.5
-Terraform - v1.5.4
-kubectl - v1.27.4
-flux - v2.0.1
+AWS CLI - v2.13.5  
+Terraform - v1.5.4  
+kubectl - v1.27.4  
+flux - v2.0.1  
+
+### Repo structure diagram
+```
+terraform
+
+flux
+├── bootstrap-scripts
+│
+├── apps
+│   ├── base
+│   └── production
+│
+├── infrastructure
+│   └── controllers
+│   
+└── cluster
+    └── graylog-eks
