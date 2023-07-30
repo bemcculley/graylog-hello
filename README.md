@@ -1,7 +1,7 @@
 # graylog-hello
 Graylog Hello World project
 
-### Step 1: Installation and initial setup ###
+### Installation and initial setup ###
 
 Make sure the following tools are installed:
 
@@ -60,8 +60,9 @@ flux
 ```
 
 ### URLS ###
-[Weave Gitops](http://a6af14c8811704d2caf3747e3fd9eb26-116247240.us-east-1.elb.amazonaws.com:9000/applications)
-username: admin
+[Weave Gitops](http://a6af14c8811704d2caf3747e3fd9eb26-116247240.us-east-1.elb.amazonaws.com:9000/applications)  
+username: admin  
 password: in email
 
-[Hello World](http://ab2d37533b50f45abbb7c3a6db6a236f-1476568444.us-east-1.elb.amazonaws.com:8080)
+[Hello World](http://ab2d37533b50f45abbb7c3a6db6a236f-1476568444.us-east-1.elb.amazonaws.com:8080)  
+[Alternate Hello World](http://a21ccd9f8e76c4aec81c4ea96602db12-441149813.us-east-1.elb.amazonaws.com:8000) - will reflect any uri as well (eg. /healthz)
