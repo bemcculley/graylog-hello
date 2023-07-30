@@ -78,6 +78,20 @@ password: in email
 
 ![docs/grafana-prometheus-metrics.png](docs/grafana-prometheus-metrics.png)
 
+### Pod autoscaling ###
+```45m         Normal   Killing            Pod/hello-world-alt-deployment-f4685d744-wqtvm     Stopping container hello-world-alt-container
+56m         Normal   SuccessfulDelete   ReplicaSet/hello-world-alt-deployment-f4685d744    Deleted pod: hello-world-alt-deployment-f4685d744-cqrl4
+56m         Normal   SuccessfulDelete   ReplicaSet/hello-world-alt-deployment-f4685d744    Deleted pod: hello-world-alt-deployment-f4685d744-5p4xk
+51m         Normal   SuccessfulCreate   ReplicaSet/hello-world-alt-deployment-f4685d744    Created pod: hello-world-alt-deployment-f4685d744-nw5jt
+51m         Normal   SuccessfulCreate   ReplicaSet/hello-world-alt-deployment-f4685d744    Created pod: hello-world-alt-deployment-f4685d744-wqtvm
+45m         Normal   SuccessfulDelete   ReplicaSet/hello-world-alt-deployment-f4685d744    Deleted pod: hello-world-alt-deployment-f4685d744-nw5jt
+45m         Normal   SuccessfulDelete   ReplicaSet/hello-world-alt-deployment-f4685d744    Deleted pod: hello-world-alt-deployment-f4685d744-wqtvm
+45m (x3 over 70m)   Normal   ScalingReplicaSet   Deployment/hello-world-alt-deployment              Scaled down replica set hello-world-alt-deployment-f4685d744 to 1 from 3
+51m (x2 over 61m)   Normal   ScalingReplicaSet   Deployment/hello-world-alt-deployment              Scaled up replica set hello-world-alt-deployment-f4685d744 to 3 from 1
+42m                 Normal   ScalingReplicaSet   Deployment/hello-world-alt-deployment              Scaled up replica set hello-world-alt-deployment-7fcddccd86 to 1
+45m (x2 over 56m)   Normal   SuccessfulRescale   HorizontalPodAutoscaler/hello-world-alt-hpa        New size: 1; reason: All metrics below target```
+```
+
 ### TODO ##
  - Add ingress-nginx controllers
  - Add cert-manager and letsencrypt
