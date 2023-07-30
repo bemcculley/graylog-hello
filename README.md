@@ -78,6 +78,11 @@ password: in email
 
 ![docs/grafana-prometheus-metrics.png](docs/grafana-prometheus-metrics.png)
 
+### TODO ##
+ - Add ingress-nginx controllers
+ - Add cert-manager and letsencrypt
+ - Add persistent volumes and volume claims for long-term storage
+
 ### Cluster Resources ###
 ```
 NAMESPACE       NAME                                                            READY   STATUS    RESTARTS   AGE
