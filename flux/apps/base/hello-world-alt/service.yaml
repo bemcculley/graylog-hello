@@ -5,7 +5,7 @@ metadata:
   namespace: default
 spec:
   selector:
-    deployment: hello
+    deployment: hello-alt
   type: LoadBalancer
   ports:
   - protocol: TCP
