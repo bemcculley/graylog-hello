@@ -4,6 +4,7 @@ commonLabels:
   variant: production
 resources:
   - ../../base/hello-world
+  - ./namespace.yaml
 patches:
   - target:
       group: apps
