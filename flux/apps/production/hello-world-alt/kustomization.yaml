@@ -1,0 +1,31 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+commonLabels:
+  variant: production
+resources:
+  - ../../base/hello-world-alt
+patches:
+  - target:
+      group: apps
+      version: v1
+      kind: Deployment
+      name: hello-world-alt-deployment
+    path: patch-namespace.yaml
+  - target:
+      group: ""
+      version: v1
+      kind: Service
+      name: hello-world-alt-service
+    path: patch-namespace.yaml
+  - target:
+      group: ""
+      version: v1
+      kind: ConfigMap
+      name: hello-world-alt-map
+    path: patch-namespace.yaml
+  - target:
+      group: autoscaling
+      version: v2
+      kind: HorizontalPodAutoscaler
+      name: hello-world-alt-hpa
+    path: patch-namespace.yaml
