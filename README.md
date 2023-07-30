@@ -1,9 +1,21 @@
 # graylog-hello
 Graylog Hello World project
 
+## Overview ##
+The purpose of this project is to set up an example EKS kubernetes cluster in AWS utilizing several example technologies such as:
+Kustomize, FluxCD, Prometheus, Grafana, Weave Gitops.
+
+There are several areas that could be improved both for performance and security concerns that were created in an abbreviated form for this proof of concept. This is expanded upon in the TODO section later in this Readme.
+
+Terraform was used for EKS cluster and bare-minimum VPC networking creation. 
+Scripts in the `flux/bootstrap-scripts` folder were used to bootstrap the installation of FluxCD and the Promethus monitoring stack.
+
+The `apps`, `cluster`, and `infrastructure` sub-folders are structured based on the [FluxCD structure guide](https://fluxcd.io/flux/guides/repository-structure/) with some minor modifications. The `apps` folder shows an example of a kustomize overlay pattern with a `base` folder and an `production` 'overlay' which modifies the namespace the app runs in. This is controlled and reconciled against the git repository by the Flux Kustomization resource in `flux/cluster/graylog-eks/apps`. Other Kustomizations could be added here for other test, staging, etc. environments 
+
+
 ### Installation and initial setup ###
 
-Make sure the following tools are installed:
+This repository will make use of the following tools at these versions. Specific install and configuration instructions included later
 
 AWS CLI - v2.13.5  
 Terraform - v1.5.4  
@@ -29,11 +41,14 @@ flux - v2.0.1
 - Install or update kubectl if needed: https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/
 - Update kubeconfig with eks cluster context `aws eks --region us-east-1 update-kubeconfig --name graylog-eks-cluster --profile graylog-eks`
 - Test access: `kubectl get ns`
-  ```NAME              STATUS   AGE
+
+```
+  NAME              STATUS   AGE
   default           Active   19m
   kube-node-lease   Active   19m
   kube-public       Active   19m
   kube-system       Active   19m
+ ```
 
 ### Flux bootstrap ###
 
@@ -96,6 +111,9 @@ password: in email
  - Add ingress-nginx controllers
  - Add cert-manager and letsencrypt
  - Add persistent volumes and volume claims for long-term storage
+ - Add secrets management
+ - Cluster autoscaler implementation
+ - Create imperative manifests for prometheus stack from bootstrapped kustomization
 
 ### Cluster Resources ###
 ```
@@ -253,3 +271,11 @@ NAMESPACE    NAME                                                      REFERENCE
 production   horizontalpodautoscaler.autoscaling/hello-world-alt-hpa   Deployment/hello-world-alt-deployment   0%/50%    1         10        1          33m
 production   horizontalpodautoscaler.autoscaling/hello-world-hpa       Deployment/hello-world-deployment       0%/50%    1         10        1          88m
 ```
+
+
+### References ###
+[Flux - Getting Started](https://fluxcd.io/flux/get-started/)  
+[Flux - Install Prometheus](https://fluxcd.io/flux/guides/monitoring/)  
+[Flux - Example repository structure](https://github.com/fluxcd/flux2-kustomize-helm-example/tree/main)
+[Pod Autoscaling](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/)  
+[Hello World pod example](https://github.com/kubernetes-sigs/kustomize/blob/master/examples/helloWorld/deployment.yaml)  
