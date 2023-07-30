@@ -7,7 +7,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      deployment: hello-world
+      deployment: hello-world-deployment
   template:
     metadata:
       labels:
